@@ -60,7 +60,7 @@ const questions = [
     correctAnswer:"4"
 
   },{
-    question:"If the value of x is 40, then what is the output of the following program?",
+    question:"If the value of x is 40, then what is the output of the program? (x%10==0)?console.log(Divisible by 10): console.log(Not divisible by 10) ",
     answers:{
       a:"ReferenceError",
       b:"Divisible by 10",
