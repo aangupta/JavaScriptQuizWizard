@@ -10,103 +10,51 @@ console.log(`Hiii: ${name}. Good Luck !!!\n`);
 const questions = [
   {
     question: "Who invented JavaScript?",
-		answers: {
-      a: "Douglas Crockford",
-      b: "Sheryl Sandberg",
-      c: "Brendan Eich",
-      d:"Steve Jobs"
-      },
-		correctAnswer: '3'
+		answers: ["Douglas Crockford","Sheryl Sandberg","Brendan Eich","Steve Jobs"],correctAnswer: 3
   },
   {
     question: "Which tool can you use to ensure code quality?",
-    answers:{
-      a: "Angular",
-      b: "jQuery",
-      c: "RequireJS",
-      d: "ESLint"
-    },
-    correctAnswer: '4'
+    answers:["Angular","jQuery","RequireJS","ESLint"],
+    correctAnswer: 4
   },
   {
     question: "JavaScript is a ___ -side programming language",
-    answers:{
-      a:"Client",
-      b:"Server",
-      c:"Both",
-      d:"None"
-    },
-    correctAnswer:'3'
+    answers:["Client","Server","Both","None"],
+    correctAnswer:3
   },
   {
     question :"Which are the correct if statements to execute certain code if x is equal to 2?",
-    answers:{
-      a:"if(x%2)",
-      b:"if(x==2)",
-      c:"if(x!=2)",
-      d:"if(x=2)"
-
-    },
-    correctAnswer:"2"
+    answers:["if(x%2)","if(x==2)","if(x!=2)","if(x=2)"],
+    correctAnswer:2
   },
   {
     question:"Which JavaScript label catches all the values, except for the ones specified?",
-    answers:{
-      a:"try",
-      b:"catch",
-      c:"label",
-      d:"default"
-    },
-    correctAnswer:"4"
+    answers:["try","catch","label","default"],
+    correctAnswer:4
 
   },{
     question:"If the value of x is 40, then what is the output of the program? (x%10==0)?console.log(Divisible by 10): console.log(Not divisible by 10) ",
-    answers:{
-      a:"ReferenceError",
-      b:"Divisible by 10",
-      c:"Not divisible by 10",
-      d:"None of the above",
-    },
-    correctAnswer:"2"
+    answers:["ReferenceError","Divisible by 10","Not divisible by 10","None of the above"],
+    correctAnswer:2
   },
   {
     question:"What Boolean(3<7) will return ?",
-    answers:{
-      a:"True",
-      b:"False",
-      c:"NaN",
-      d:"None of the above"
-    },
-    correctAnswer:"1"
+    answers:["True","False","NaN","None of the above"],
+    correctAnswer:1
   },
   {
     question:"Determine the result -String('Hello') === 'Hello';",
-    answers:{
-      a:"True",
-      b:"False",
-      c:"SyntaxError",
-      d:"ReferenceError"
-    },
-    correctAnswer:"1"
+    answers:["True","False","SyntaxError","ReferenceError"],
+    correctAnswer:1
 
   },{
     question:"What is the correct JavaScript syntax to print “DataFlair” in the console?",
-    answers:{
-      a:"print(“DataFlair”);",
-      b:"console.print(“DataFlair”);",
-      c:"log.console(“DataFlair”);",
-      d:"console.log(“DataFlair”);"
-    },
-    correctAnswer:"4"
+    answers:["print(“DataFlair”);","console.print(“DataFlair”);","log.console(“DataFlair”);","console.log(“DataFlair”);"],
+    correctAnswer:4
   },{
     question:"Which of the given options is an incorrect variable name?",
-    answers:{
-      a:"javascript",
-      b:"_javascript",
-      c:"$javascript",
-      d:"-javascript"
-    },
-    correctAnswer:"4"
+    answers:["javascript","_javascript","$javascript","-javascript"],
+    correctAnswer:4
   }
 
   ];
@@ -119,17 +67,9 @@ function displayQuestions(i){
 
 function displayOptions(i){
 
-  let optionArr =[];
-    
-    optionArr.push(questions[i].answers.a);
-    optionArr.push(questions[i].answers.b);
-    optionArr.push(questions[i].answers.c);
-    optionArr.push(questions[i].answers.d+"\n");
-    let optionNum =1;
-    for(element of optionArr){
-      console.log(optionNum+":"+" " + element);
-      optionNum+=1;
-    }
+  for (let indx= 0; indx < questions[i].answers.length;indx++){
+    console.log(`Option ${indx+1} : ${questions[i].answers[indx]}\n`);
+  }
 
 }
 
@@ -154,11 +94,11 @@ function startQuiz(questions){
     displayQuestions(i);
     displayOptions(i);
 
-   const selectedOption = readLineSync.question('Please enter your option\n');
+   const selectedOption = parseInt(readLineSync.question('Please enter your option\n'));
 
    if(validateInput(selectedOption)){
 
-      if(questions[i].correctAnswer == selectedOption){
+      if(questions[i].correctAnswer === selectedOption){
       console.log("Hurray !!!! CorrectAnswer\n");
       score++;
     }else{
